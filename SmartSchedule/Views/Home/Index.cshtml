@@ -44,9 +44,9 @@
         </div>
         <div class="col">
             <label asp-for="Filtro.Categoria">Categoria</label>
-            @Html.DropDownList("Categorias",
+            @Html.DropDownListFor(model => model.Filtro.Categoria,
                      new SelectList(Enum.GetValues(typeof(ECategoria))),
-                     "Selecione a categoria",
+                     "Selecione a prioridade",
                      new { @class = "form-control" })
         </div>
         <div class="col mt-3">

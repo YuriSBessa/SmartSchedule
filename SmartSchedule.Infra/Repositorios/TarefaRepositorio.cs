@@ -92,7 +92,7 @@ namespace SmartSchedule.Infra.Repositorios
 
 			if (filtro.DataInicial != null && filtro.DataFinal != null)
 			{
-				query = query.Where(e => e.DataInicio >= filtro.DataInicial && e.DataInicio <= filtro.DataFinal);
+				query = query.Where(e => e.DataInicio.Value.Date >= filtro.DataInicial.Value.Date && e.DataInicio.Value.Date <= filtro.DataFinal.Value.Date);
 			}
 
 			if (filtro.Categoria != null)

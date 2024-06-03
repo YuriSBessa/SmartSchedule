@@ -1,0 +1,52 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34723.18
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SmartSchedule", "SmartSchedule\SmartSchedule.csproj", "{8479D2B2-AC1D-4C44-8D1F-59A8FF032C5D}"
+	ProjectSection(ProjectDependencies) = postProject
+		{11172659-BF4C-4E55-9F9B-761A4235C3B5} = {11172659-BF4C-4E55-9F9B-761A4235C3B5}
+		{1D9B8122-732E-4646-B663-03021C5E3203} = {1D9B8122-732E-4646-B663-03021C5E3203}
+		{F1458404-7126-410C-9D20-070A2E76E437} = {F1458404-7126-410C-9D20-070A2E76E437}
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SmartSchedule.Aplicacao", "SmartSchedule.Aplicacao\SmartSchedule.Aplicacao.csproj", "{1D9B8122-732E-4646-B663-03021C5E3203}"
+	ProjectSection(ProjectDependencies) = postProject
+		{11172659-BF4C-4E55-9F9B-761A4235C3B5} = {11172659-BF4C-4E55-9F9B-761A4235C3B5}
+		{F1458404-7126-410C-9D20-070A2E76E437} = {F1458404-7126-410C-9D20-070A2E76E437}
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SmartSchedule.Dominio", "SmartSchedule.Dominio\SmartSchedule.Dominio.csproj", "{F1458404-7126-410C-9D20-070A2E76E437}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SmartSchedule.Infra", "SmartSchedule.Infra\SmartSchedule.Infra.csproj", "{11172659-BF4C-4E55-9F9B-761A4235C3B5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8479D2B2-AC1D-4C44-8D1F-59A8FF032C5D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8479D2B2-AC1D-4C44-8D1F-59A8FF032C5D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8479D2B2-AC1D-4C44-8D1F-59A8FF032C5D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8479D2B2-AC1D-4C44-8D1F-59A8FF032C5D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1D9B8122-732E-4646-B663-03021C5E3203}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D9B8122-732E-4646-B663-03021C5E3203}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D9B8122-732E-4646-B663-03021C5E3203}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D9B8122-732E-4646-B663-03021C5E3203}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F1458404-7126-410C-9D20-070A2E76E437}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F1458404-7126-410C-9D20-070A2E76E437}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F1458404-7126-410C-9D20-070A2E76E437}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F1458404-7126-410C-9D20-070A2E76E437}.Release|Any CPU.Build.0 = Release|Any CPU
+		{11172659-BF4C-4E55-9F9B-761A4235C3B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{11172659-BF4C-4E55-9F9B-761A4235C3B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{11172659-BF4C-4E55-9F9B-761A4235C3B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{11172659-BF4C-4E55-9F9B-761A4235C3B5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4429D9B8-8336-4500-AD64-AA04CF63EE9D}
+	EndGlobalSection
+EndGlobal

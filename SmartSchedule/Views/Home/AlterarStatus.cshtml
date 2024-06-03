@@ -1,0 +1,20 @@
+﻿@using SmartSchedule.Dominio.Entidades
+@using SmartSchedule.Dominio.Enums
+@model Tarefas
+
+<h1>Alterar Status</h1>
+
+<form asp-action="AlterarStatusTarefa" method="post">
+    <div class="form-group">
+        <label>Status</label>
+        <select asp-for="StatusTarefa" class="form-control">
+            <option value="">Selecione o status</option>
+            @foreach (var item in Enum.GetValues(typeof(EStatusTarefa)))
+            {
+                <option value="@item">@item</option>
+            }
+        </select>
+    </div>
+    <input type="hidden" asp-for="Id" />
+    <input type="submit" class="btn btn-primary mt-2" />
+</form>

@@ -1,0 +1,102 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using SmartSchedule.Dominio.Models
+@using SmartSchedule.Dominio.Dtos
+@using SmartSchedule.Dominio.Enums
+@using SmartSchedule.Dominio.Entidades
+@using SmartSchedule.Dominio.ViewModel
+@inject UserManager<AppUser> UserManager
+@model TarefaViewModel
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+@{
+    // Obtendo o usuário atualmente logado
+    AppUser user = await UserManager.GetUserAsync(User);
+}
+
+<div class="d-flex justify-content-between">
+    <h1>Lista de Tarefas</h1>
+    <a asp-controller="Home" asp-action="Cadastrar" class="btn btn-primary pb-0">Criar</a>
+</div>
+
+<form asp-action="Exibir" method="post">
+    <div class="row">
+        <div class="col">
+            <label asp-for="Filtro.Titulo">Titulo</label>
+            <input type="text" placeholder="Digite o titulo" class="form-control" asp-for="Filtro.Titulo" />
+        </div>
+        <div class="col">
+            <label asp-for="Filtro.DataInicial">Data inicial</label>
+            <input type="date" placeholder="Digite o titulo" class="form-control" asp-for="Filtro.DataInicial" />
+        </div>
+        <div class="col">
+            <label asp-for="Filtro.DataFinal">Data Final</label>
+            <input type="date" placeholder="Digite o titulo" class="form-control" asp-for="Filtro.DataFinal" />
+        </div>
+        <div class="col">
+            <label asp-for="Filtro.Status">Status</label>
+            @Html.DropDownListFor(model => model.Filtro.Status,
+                     new SelectList(Enum.GetValues(typeof(EStatusTarefa))),
+                     "Selecione a prioridade",
+                     new { @class = "form-control" })
+        </div>
+        <div class="col">
+            <label asp-for="Filtro.Categoria">Categoria</label>
+            @Html.DropDownList("Categorias",
+                     new SelectList(Enum.GetValues(typeof(ECategoria))),
+                     "Selecione a categoria",
+                     new { @class = "form-control" })
+        </div>
+        <div class="col mt-3">
+            <input type="submit" class="btn btn-primary mt-2" value="filtrar" />
+        </div>
+    </div>
+</form>
+
+<div class="container">
+    <table class="table mt-4">
+        <thead class="table-dark">
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Titulo</th>
+                <th scope="col">Descricao</th>
+                <th scope="col">Data De Criacao</th>
+                <th scope="col">Data de Inicio</th>
+                <th scope="col">Data de conclusão</th>
+                <th scope="col">Prioridade</th>
+                <th scope="col">Status</th>
+                <th scope="col">Categoria</th>
+                <th scope="col"></th>
+                <th scope="col"></th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Tarefas)
+            {
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.Titulo</td>
+                    <td>@item.Descricao</td>
+                    <td>@item.DataDeCriacao</td>
+                    <td>@item.DataInicio</td>
+                    <td>@item.DataConclusao</td>
+                    <td>@item.Prioridade</td>
+                    <td>@item.StatusTarefa</td>
+                    <td>@item.Categoria</td>
+                    <td>
+                        <a asp-controller="Home" asp-action="AlterarTarefa" asp-route-id="@item.Id" class="btn btn-primary">Alterar</a>
+                    </td>
+                    <td>
+                        <a asp-controller="Home" asp-action="AlterarStatus" asp-route-id="@item.Id" class="btn btn-warning">Status</a>
+                    </td>
+                    <td>
+                        <a asp-controller="Home" asp-action="DeletarTarefa" asp-route-id="@item.Id" class="btn btn-danger">Deletar</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
